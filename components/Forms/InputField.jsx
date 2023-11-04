@@ -14,6 +14,7 @@ export default function InputField({
   labelClassName = "",
   onChange = () => {},
   onFocus = () => {},
+  ...props
 }) {
   return (
     <div className={`w-full flex flex-col gap-1 ${extraClassName}`}>
