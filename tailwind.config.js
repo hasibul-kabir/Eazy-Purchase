@@ -18,6 +18,7 @@ module.exports = {
         primary: "#7f5af0",
         secondary: "#72757e",
         tertiary: "#2cb67d",
+        stroke: "#010101",
       },
     },
   },
