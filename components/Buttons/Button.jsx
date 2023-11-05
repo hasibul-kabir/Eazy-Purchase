@@ -1,7 +1,7 @@
 const disabledStyle =
-  "flex items-center rounded-md px-4 py-2 text-sm font-bold shadow-sm bg-white border border-gray-300 text-gray-300";
+  "flex items-center justify-center rounded-md px-4 py-2 text-center text-sm font-bold shadow-sm bg-white border border-gray-300 text-gray-300";
 const defaultStyle =
-  "inline-flex items-center rounded-md border px-4 py-2 text-sm font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2";
+  "flex items-center justify-center rounded-md border px-4 py-2 text-sm font-bold text-center shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2";
 const variants = {
   primary: "border-transparent bg-primary text-white focus:ring-primary",
   secondary: "border-transparent bg-secondary text-white  focus:ring-secondary",

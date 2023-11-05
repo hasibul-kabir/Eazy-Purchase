@@ -12,5 +12,5 @@ export default async function postData(endpoint, payload, configureObj) {
 
   const data = await res.json();
 
-  return Response.json(data);
+  return data;
 }
