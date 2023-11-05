@@ -8,7 +8,7 @@ export default async function PopularProductsSec() {
       <h2 className="text-lg font-semibold text-white">Popular products</h2>
       <div className="grid grid-cols-3 gap-4">
         {data.products.map((product) => (
-          <ProductCard key={product._id} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </section>
