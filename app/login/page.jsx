@@ -1,5 +1,3 @@
-import Button from "@/components/Buttons/Button";
-
 export default function Login() {
   return (
     <main className="min-h-screen flex flex-col justify-center items-center">
