@@ -1,4 +1,4 @@
-export default async function postData(endpoint, configureObj) {
+export default async function postData(endpoint, payload, configureObj) {
   const baseURl = process.env.NEXT_PUBLIC_BASE_URL;
 
   const res = await fetch(`${baseURl}${endpoint}`, {
@@ -6,7 +6,8 @@ export default async function postData(endpoint, configureObj) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(),
+    body: JSON.stringify(payload),
+    next: configureObj,
   });
 
   const data = await res.json();
