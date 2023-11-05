@@ -1,17 +1,11 @@
-import getData from "@/utils/httpRequests/getData";
+import Banner from "./components/Banner";
+import PopularProductsSec from "./components/PopularProductsSec";
 
-export default async function Home() {
-  const products = await getData("/products");
-
-  if (products.status !== "success") {
-    console.log("Error happens");
-  }
-
+export default function Home() {
   return (
-    <main className="bg-background min-h-screen flex flex-col justify-center items-center">
-      <h1 className="font-bold text-4xl text-center text-headline">
-        Welcome Eazy Purchase!
-      </h1>
+    <main className="bg-background min-h-screen flex flex-col justify-center items-center gap-y-6">
+      <Banner />
+      <PopularProductsSec />
     </main>
   );
 }
