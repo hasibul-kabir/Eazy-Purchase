@@ -1,7 +1,7 @@
 import getData from "@/utils/httpRequests/getData";
 
 export default async function Home() {
-  const products = await getData("/productss");
+  const products = await getData("/products");
 
   if (products.status !== "success") {
     console.log("Error happens");
