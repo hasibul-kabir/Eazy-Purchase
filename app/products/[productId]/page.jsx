@@ -1,6 +1,7 @@
 import Image from "next/image";
 import getData from "@/utils/httpRequests/getData";
-import Button from "@/components/Buttons/Button";
+
+import AddToCartButton from "@/components/Buttons/AddToCartButton";
 
 export default async function ProductDetails({ params }) {
   const { data, status } = await getData(`/products/${params.productId}`);
@@ -41,16 +42,18 @@ export default async function ProductDetails({ params }) {
             </div>
             <div className="flex items-end gap-1">
               <p className="text-2xl font-medium">
-                {data.product.discountedPrice}
+                {data.product.discountedPrice.toFixed()}
               </p>
               <del className="text-sm">{data.product.price}</del>
             </div>
           </div>
           <p className="px-2 py-1 rounded-full bg-tertiary text-white text-sm font-medium w-fit">
-            {data.product.category.slug}
+            {data.product.category.name}
           </p>
           <p>{data.product.description}</p>
-          <Button>Add to Cart</Button>
+          <AddToCartButton productId={data.product}>
+            Add to Cart
+          </AddToCartButton>
         </div>
       </div>
     </div>

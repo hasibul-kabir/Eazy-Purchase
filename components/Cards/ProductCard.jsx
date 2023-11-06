@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Button from "../Buttons/Button";
+import AddToCartButton from "../Buttons/AddToCartButton";
 
 export default function ProductCard({ product }) {
   return (
@@ -47,7 +47,7 @@ export default function ProductCard({ product }) {
           >
             View Details
           </Link>
-          <Button>Add to Cart</Button>
+          <AddToCartButton productId={product}>Add to Cart</AddToCartButton>
         </div>
       </div>
     </article>
