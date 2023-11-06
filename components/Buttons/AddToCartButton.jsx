@@ -6,17 +6,19 @@ import { useRouter } from "next/navigation";
 import { UserContext } from "@/store/UserContext";
 
 import Button from "@/components/Buttons/Button";
+import addProductToCart from "@/app/me/actions/addProductToCart";
 
 export default function AddToCartButton({ productId }) {
   const { currentUser } = useContext(UserContext);
   const router = useRouter();
 
-  const handleAddProductToCart = () => {
+  const handleAddProductToCart = async () => {
     if (!currentUser) {
       return router.push("/login");
     }
 
-    console.log(productId);
+    const cartProduct = await addProductToCart(productId._id, 1);
+    console.log(cartProduct);
   };
 
   return <Button onClick={handleAddProductToCart}>Add to Cart</Button>;

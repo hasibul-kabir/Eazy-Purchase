@@ -1,8 +1,13 @@
 import Link from "next/link";
 
 import AddToCartButton from "../Buttons/AddToCartButton";
+import CartQuantityControl from "../Buttons/CartQuantityControl";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, cart }) {
+  const isAlreadyAdded = cart?.products.find(
+    (el) => el.item._id === product._id
+  );
+
   return (
     <article className="bg-main rounded-2xl">
       <figure className="rounded-2xl">
@@ -47,7 +52,14 @@ export default function ProductCard({ product }) {
           >
             View Details
           </Link>
-          <AddToCartButton productId={product}>Add to Cart</AddToCartButton>
+
+          {isAlreadyAdded ? (
+            <CartQuantityControl cartProduct={isAlreadyAdded} />
+          ) : (
+            product.stock !== 0 && (
+              <AddToCartButton productId={product}>Add to Cart</AddToCartButton>
+            )
+          )}
         </div>
       </div>
     </article>

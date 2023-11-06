@@ -2,6 +2,7 @@ import getData from "@/utils/httpRequests/getData";
 
 import ProductCard from "@/components/Cards/ProductCard";
 import Category from "./components/Category";
+import getCartProducts from "../me/actions/getCartProducts";
 
 export const metadata = {
   title: "EP | Products",
@@ -22,6 +23,8 @@ export default async function ProductsPage({ searchParams }) {
     "/categories"
   );
 
+  const cartData = await getCartProducts();
+
   if (status !== "success") {
     return <h1>Something went wrong!</h1>;
   }
@@ -40,7 +43,11 @@ export default async function ProductsPage({ searchParams }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-8">
         {data.products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            cart={cartData?.data?.cart}
+          />
         ))}
       </div>
     </main>
