@@ -13,9 +13,7 @@ export default function LoginForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const currentUser = await login(email, password);
-
-    console.log(currentUser);
+    login(email, password);
   };
 
   return (

@@ -1,18 +1,19 @@
 "use server";
 
-import getCookie from "@/utils/cookieHandle/getCookie";
 import setCookie from "@/utils/cookieHandle/setCookie";
-import getData from "@/utils/httpRequests/getData";
 import postData from "@/utils/httpRequests/postData";
+import loggedInUser from "./loggedInUser";
+import { redirect } from "next/navigation";
 
 export default async function login(email, password) {
   const tokenData = await postData("/users/login", { email, password });
-
   setCookie("@token", tokenData.token);
 
-  const token = await getCookie("@token");
+  const user = await loggedInUser();
 
-  const currentUserRes = await getData("/users/me", `Bearer ${token}`);
-
-  return currentUserRes;
+  if (user.data?.user.role === "user") {
+    redirect("/me");
+  } else if (user.data?.user.role === "admin") {
+    redirect("/we");
+  }
 }

@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import { UserContextProvider } from "@/store/UserContext";
 
 export const metadata = {
