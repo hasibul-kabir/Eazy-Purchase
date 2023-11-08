@@ -14,11 +14,11 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     loggedInUser().then((data) => {
-      if (data.status !== "success") {
+      if (data?.status !== "success") {
         setUser(null);
       }
 
-      if (data.status === "success") {
+      if (data?.status === "success") {
         setUser(data.data.user);
       }
     });
