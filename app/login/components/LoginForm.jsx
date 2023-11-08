@@ -1,19 +1,29 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-import InputField from "@/components/Forms/InputField";
-import Button from "@/components/Buttons/Button";
 import login from "../action/login";
 
+import Button from "@/components/Buttons/Button";
+import InputField from "@/components/Forms/InputField";
+
 export default function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    login(email, password);
+    const result = await login(email, password);
+
+    if (result.error) {
+      toast.error(result.error.message);
+    } else {
+      router.push("/me");
+      toast.success("Login successful");
+    }
   };
 
   return (
