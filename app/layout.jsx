@@ -1,5 +1,7 @@
 import "./globals.css";
 
+import { Toaster } from "react-hot-toast";
+
 import { UserContextProvider } from "@/store/UserContext";
 
 export const metadata = {
@@ -11,6 +13,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <UserContextProvider>{children}</UserContextProvider>
+
+        <Toaster />
       </body>
     </html>
   );
