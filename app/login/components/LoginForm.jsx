@@ -12,6 +12,7 @@ import InputField from "@/components/Forms/InputField";
 export default function LoginForm() {
   const router = useRouter();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();

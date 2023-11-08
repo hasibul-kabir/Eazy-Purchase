@@ -3,8 +3,16 @@ import getData from "@/utils/httpRequests/getData";
 
 import AddToCartButton from "@/components/Buttons/AddToCartButton";
 
-export default async function ProductDetails({ params }) {
-  const { data, status } = await getData(`/products/${params.productId}`);
+export async function generateMetadata(props) {
+  const { data } = await getData(`/products/${props.params.productId}`);
+
+  return {
+    title: `EP | ${data.product.name}`,
+  };
+}
+
+export default async function ProductDetails(props) {
+  const { data, status } = await getData(`/products/${props.params.productId}`);
 
   return (
     <div className="max-w-7xl gap-6">
