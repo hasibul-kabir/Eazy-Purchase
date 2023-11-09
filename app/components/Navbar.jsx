@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@/components/Buttons/Button";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -9,7 +10,9 @@ export default function Navbar() {
       <div className="flex items-center justify-center gap-4 w-2/4">
         <p className="text-white ">Home</p>
         <p className="text-white">All Products</p>
-        <ShoppingCartIcon className="text-white h-5 w-5" />
+        <Link href="/cart">
+          <ShoppingCartIcon className="text-white h-5 w-5" />
+        </Link>
       </div>
       <div>
         <Button>Login</Button>
