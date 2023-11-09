@@ -1,8 +1,8 @@
+import getCartProducts from "../me/actions/getCartProducts";
 import getData from "@/utils/httpRequests/getData";
 
-import ProductCard from "@/components/Cards/ProductCard";
 import Category from "./components/Category";
-import getCartProducts from "../me/actions/getCartProducts";
+import ProductCard from "@/components/Cards/ProductCard";
 
 export const metadata = {
   title: "EP | Products",

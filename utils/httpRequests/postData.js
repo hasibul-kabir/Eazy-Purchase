@@ -14,6 +14,13 @@ export default async function postData(endpoint, payload, configureObj) {
     next: configureObj,
   });
 
+  if (!res.ok || !`${res.status}`.startsWith(2)) {
+    const error = await res.json();
+    throw {
+      ...error,
+    };
+  }
+
   const data = await res.json();
 
   return data;

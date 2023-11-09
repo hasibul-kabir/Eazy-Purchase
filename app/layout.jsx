@@ -1,6 +1,8 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 
+import { Toaster } from "react-hot-toast";
+
 import { UserContextProvider } from "@/store/UserContext";
 
 export const metadata = {
