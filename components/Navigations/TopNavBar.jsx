@@ -28,17 +28,21 @@ export default function TopNavBar() {
         </Link>
       </div>
       <div className="col-start-2 col-end-6 justify-self-center">
-        {navLinks.map((navLink) => (
-          <Link
-            key={navLink.label}
-            href={navLink.href}
-            className={`text-sm font-bold px-3 ${
-              navLink.href === pathName && "text-primary underline"
-            }`}
-          >
-            {navLink.label}
-          </Link>
-        ))}
+        {currentUser?.role === "user" && (
+          <>
+            {navLinks.map((navLink) => (
+              <Link
+                key={navLink.label}
+                href={navLink.href}
+                className={`text-sm font-bold px-3 ${
+                  navLink.href === pathName && "text-primary underline"
+                }`}
+              >
+                {navLink.label}
+              </Link>
+            ))}
+          </>
+        )}
       </div>
       <div className="col-start-6 justify-self-end">
         {currentUser ? (

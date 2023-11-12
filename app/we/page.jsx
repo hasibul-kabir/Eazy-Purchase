@@ -1,12 +1,8 @@
-import CurrentUser from "@/components/CurrentUser";
-
 export default function OwnerHome() {
+  console.log("On the admin home page");
   return (
-    <main className="min-h-screen flex flex-col justify-center items-center">
-      <h1 className="font-bold text-4xl text-center">
-        Welcome Owner Home Page!
-      </h1>
-      <CurrentUser />
-    </main>
+    <h1 className="font-bold text-4xl text-center text-main">
+      Welcome Owner Home Page!
+    </h1>
   );
 }

@@ -40,7 +40,12 @@ export default function LoginForm() {
     if (result.error) {
       toast.error(result.error.message);
     } else {
-      router.push("/me");
+      if (result.data.user.role === "user") {
+        router.push("/me");
+      }
+      if (result.data.user.role === "admin") {
+        router.push("/we");
+      }
       toast.success("Login successful");
     }
   };

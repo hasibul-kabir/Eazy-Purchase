@@ -1,3 +1,4 @@
+import OwnerTabNavigation from "@/components/Navigations/OwnerTabNavigation";
 import loggedInUser from "../login/action/loggedInUser";
 
 import ProtectAndRestrictTo from "@/components/Wrappers/ProtectAndRestrictTo";
@@ -7,7 +8,10 @@ export default async function OwnerLayout({ children }) {
 
   return (
     <ProtectAndRestrictTo restrictTo="admin" user={user}>
-      {children}
+      <main className="bg-background min-h-screen px-6 py-4">
+        <OwnerTabNavigation />
+        {children}
+      </main>
     </ProtectAndRestrictTo>
   );
 }
