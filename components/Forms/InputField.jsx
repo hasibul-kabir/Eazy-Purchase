@@ -3,6 +3,7 @@ export default function InputField({
   type = "text",
   label = "Write something",
   value = "",
+  error = null,
   placeholder = "Write something",
   isDisabled = false,
   isRequired = false,
@@ -39,6 +40,9 @@ export default function InputField({
         onChange={onChange}
         onFocus={onFocus}
       />
+      {error && (
+        <label className="text-red-600 text-sm font-medium">{error}</label>
+      )}
     </div>
   );
 }
