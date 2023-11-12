@@ -9,7 +9,7 @@ export default function ProductCard({ product, cart }) {
   );
 
   return (
-    <article className="bg-main rounded-2xl">
+    <article className="bg-main rounded-2xl border">
       <figure className="rounded-2xl">
         <img
           src="/placeholder-product-image.jpg"
