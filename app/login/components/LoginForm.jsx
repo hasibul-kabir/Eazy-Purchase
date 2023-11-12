@@ -55,6 +55,7 @@ export default function LoginForm() {
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <InputField
+            name="email"
             type="email"
             placeholder="Email"
             label="Email"
@@ -71,6 +72,7 @@ export default function LoginForm() {
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <InputField
+            name="password"
             type="password"
             label="Password"
             value={value}

@@ -19,7 +19,7 @@ export const UserContextProvider = ({ children }) => {
       }
 
       if (data?.status === "success") {
-        setUser(data.data.user);
+        setUser(data?.data.user);
       }
     });
   }, []);
