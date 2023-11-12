@@ -11,8 +11,8 @@ import UserDropdown from "./UserDropdown";
 
 const navLinks = [
   { href: "/products", label: "Products" },
-  { href: "/", label: "Categories" },
-  { href: "/", label: "About" },
+  { href: "/categories", label: "Categories" },
+  { href: "/about-us", label: "About" },
 ];
 
 export default function TopNavBar() {
