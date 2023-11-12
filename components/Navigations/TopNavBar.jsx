@@ -28,7 +28,7 @@ export default function TopNavBar() {
         </Link>
       </div>
       <div className="col-start-2 col-end-6 justify-self-center">
-        {currentUser?.role === "user" && (
+        {currentUser?.role !== "admin" && (
           <>
             {navLinks.map((navLink) => (
               <Link
