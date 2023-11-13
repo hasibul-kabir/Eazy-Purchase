@@ -47,7 +47,7 @@ const Button = ({
     <button
       type={type}
       onClick={onClick}
-      className={`${defaultStyle}${extraClassName}${
+      className={`${defaultStyle} ${extraClassName} ${
         disabled ? disabledStyle : variants[variant]
       }`}
       disabled={disabled || isLoading}
