@@ -2,6 +2,8 @@ import Image from "next/image";
 import getData from "@/utils/httpRequests/getData";
 
 import AddToCartButton from "@/components/Buttons/AddToCartButton";
+import CartQuantityControl from "@/components/Buttons/CartQuantityControl";
+import getCartProducts from "@/app/me/actions/getCartProducts";
 
 export async function generateMetadata(props) {
   const { data } = await getData(`/products/${props.params.productId}`);
@@ -13,6 +15,12 @@ export async function generateMetadata(props) {
 
 export default async function ProductDetails(props) {
   const { data, status } = await getData(`/products/${props.params.productId}`);
+
+  const cartData = await getCartProducts();
+
+  const isAlreadyAdded = cartData.data.cart?.products.find(
+    (el) => el.item._id === data.product._id
+  );
 
   return (
     <main className="bg-background min-h-screen px-6 md:px-4">
@@ -60,9 +68,15 @@ export default async function ProductDetails(props) {
               {data.product.category.name}
             </p>
             <p>{data.product.description}</p>
-            <AddToCartButton productId={data.product}>
-              Add to Cart
-            </AddToCartButton>
+            {isAlreadyAdded ? (
+              <CartQuantityControl cartProduct={isAlreadyAdded} />
+            ) : (
+              data.product.stock !== 0 && (
+                <AddToCartButton productId={data.product}>
+                  Add to Cart
+                </AddToCartButton>
+              )
+            )}
           </div>
         </div>
       </div>
