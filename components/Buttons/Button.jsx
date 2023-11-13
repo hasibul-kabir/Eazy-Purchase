@@ -53,8 +53,7 @@ const Button = ({
       disabled={disabled || isLoading}
       {...props}
     >
-      {isLoading ? <AnimatingSpinner /> : null}
-      {children}
+      {isLoading ? <AnimatingSpinner /> : <>{children}</>}
     </button>
   );
 };
